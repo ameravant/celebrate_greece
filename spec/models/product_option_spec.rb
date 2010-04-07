@@ -1,4 +1,4 @@
-require "#{RAILS_ROOT}/spec/spec_helper.rb"
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe ProductOption do
   before(:each) do
