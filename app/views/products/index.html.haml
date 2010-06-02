@@ -1,0 +1,7 @@
+- content_for(:meta_title) { concat "Store" }
+
+= render :partial => "sidecolumn2"
+%h1
+  Products
+%ul.product-list
+  =render :partial => "product", :collection => @products
