@@ -3,9 +3,10 @@
 %h1
   = yield :title
 %p.icon
+  = icon "Plus", new_admin_product_category_product_path(@product_category)
+  = link_to "Add a video product", new_admin_product_category_product_path(@product_category)
   = icon "Plus", new_admin_product_path
-  = link_to "Create a video product", new_admin_product_category_product_path(@product_category)
-  
+  = link_to "Add a non-video product", new_admin_product_path
   = icon "Dots Down", admin_product_categories_path
   = link_to "View Product Categories", admin_product_categories_path
   

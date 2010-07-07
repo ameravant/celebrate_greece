@@ -2,8 +2,6 @@ class AddFieldsToProducts < ActiveRecord::Migration
   def self.up
     add_column :products, :embed_code, :string
     add_column :products, :short_description, :text
-    add_column :products, :featured, :boolean
-    add_column :products, :active, :boolean
     add_column :products, :resolution, :string
     add_column :products, :aspect, :string
     add_column :products, :map, :float
@@ -31,8 +29,6 @@ class AddFieldsToProducts < ActiveRecord::Migration
     remove_column :products, :map
     remove_column :products, :aspect
     remove_column :products, :resolution
-    remove_column :products, :active
-    remove_column :products, :featured
     remove_column :products, :short_description
     remove_column :products, :embed_code
   end

@@ -1,5 +1,93 @@
 %tr
   %td
-    Name:
+    Video ID:
   %td
-    = f.text_field :name, :class => "big"
+    = f.text_field :sku, :size => 10
+%tr
+  %td
+    Embed Code:
+  %td
+    = f.text_field :embed_code, :class => "big"
+%tr
+  %td
+    Short Description:
+  %td
+    = f.text_area :short_description, :size => "50x5", :class => "big"
+%tr
+  %td
+    Resolution:
+  %td
+    = f.text_field :resolution, :class => "big"
+%tr
+  %td
+    Aspect:
+  %td
+    = f.text_field :aspect, :class => "big"
+%tr
+  %td
+    Map:
+  %td
+    = f.text_field :map, :class => "big"
+%tr
+  %td
+    UPC:
+  %td
+    = f.text_field :upc, :class => "big"
+%tr
+  %td
+    Producer:
+  %td
+    = f.text_field :producer, :class => "big"
+%tr
+  %td
+    VOD:
+  %td
+    = f.text_field :vod, :class => "big"
+%tr
+  %td
+    Video Length:
+  %td
+    = f.text_field :video_length, :class => "big"
+%tr
+  %td
+    Trailer Length:
+  %td
+    = f.text_field :trailer_length, :class => "big"
+%tr
+  %td
+    Subtitled:
+  %td
+    = f.text_field :subtitled, :class => "big"
+%tr
+  %td
+    Country:
+  %td
+    = f.text_field :country, :class => "big"
+%tr
+  %td
+    Region:
+  %td
+    = f.text_field :region, :class => "big"
+%tr
+  %td.top= f.label :tag_list, "Tags"
+  %td
+    = f.text_field :tag_list, :size => 60
+    %br
+    %span{:class => "small gray"} Separate words or phrases with a comma
+%tr 
+  %td.top 
+    %h2 Purchase Options
+    %span{:class => "small gray"} Purchase links for each format 
+%tr
+  %td DVD:
+  %td= f.text_field :dvd
+%tr
+  %td iTunes
+  %td=f.text_field :itunes
+%tr
+  %td PC to TV/Computer
+  %td=f.text_field :pc_to_tv
+%tr
+  %td Mobile Video
+  %td=f.text_field :mobile
+  
