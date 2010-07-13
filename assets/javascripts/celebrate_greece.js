@@ -2,7 +2,7 @@ function toggleBasedOnChecked(checkbox, target) {
   jQuery(checkbox).click( 
     	function() {
           if(this.checked){
-            jQuery(target).css("display", "table");
+            jQuery(target).css("display", "table-cell");
           }else{
             jQuery(target).css("display", "none");
          }
