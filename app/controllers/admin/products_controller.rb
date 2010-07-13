@@ -4,13 +4,13 @@ class Admin::ProductsController < AdminController
   add_breadcrumb "Products", nil
 
   def index
+    @category = ProductCategory.find_or_create_by_name("videos")
     if params[:product_category_id]
       products = ProductCategory.find(params[:product_category_id]).products
     else
       products = Product.all
     end
     @products = products.paginate(:page => params[:page], :per_page => 25)
-    @category = ProductCategory.find_by_permalink("videos")
   end
 
   def new

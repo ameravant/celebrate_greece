@@ -1,6 +1,6 @@
 div#featured-videos {padding:15px;}
 div#featured-videos h2 {margin:0;padding:0;font-size:1.3em;}
-div#featured-videos div {width:31%; float:right; display:inline;clear:none;padding:0; margin-right:10px;}
+div#featured-videos div {width:31%; float:left; display:inline;clear:none;padding:0; margin-right:10px;}
 div#featured-videos ul {float:left;margin:0;padding:0; list-style-type:none;}
 div#featured-videos ul li {padding:0; margin-top:10px;}
 .jsenabled tr.video-form{display:none; clear:left;}
