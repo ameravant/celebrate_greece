@@ -7,7 +7,7 @@
   %td
     =f.label :embed_code, "Embed Code:"
   %td
-    = f.text_field :embed_code, :class => "big"
+    = f.text_area :embed_code, :size => "50x5", :class => "big"
 %tr.video-form
   %td
     = f.label :short_description, "Short Description:"
@@ -38,6 +38,21 @@
     = f.label :producer, "Producer:"
   %td
     = f.text_field :producer, :class => "big"
+%tr.video-form
+  %td
+    =f.label :isbn_ten, "ISBN-10:"
+  %td
+    = f.text_field :isbn_ten, :class => "big"
+%tr.video-form
+  %td
+    =f.label :isbn_thirteen, "ISBN-13:"
+  %td
+    = f.text_field :isbn_thirteen, :class => "big"
+%tr.video-form
+  %td
+    =f.label :language, "Language:"
+  %td
+    = f.text_field :language, :class => "big"
 %tr.video-form
   %td
     =f.label :vod, "VOD:"
