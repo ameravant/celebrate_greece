@@ -1,4 +1,6 @@
 - content_for :head do
+  = stylesheet_link_tag "/plugin_assets/celebrate_greece/stylesheets/celebrate_greece.css"
+  = javascript_include_tag "/plugin_assets/celebrate_greece/javascripts/celebrate_greece.js"
   %style{ :type => "text/css" }
     .product-category-cell div {display:block; overflow: auto; width: 100%; height: 200px; font-size: .85em; }
     .product-category-cell ul{list-style: none; margin: 0; padding: 0 0 5px 10px;}
@@ -6,22 +8,21 @@
 %table{ :cellspacing => "0" }
   %tr
     %td
-      Name:
+      = f.label :name, "Name:"
     %td
       = f.text_field :name, :class => "big"
-  -unless params[:product_category_id]
-    %tr
-      %td
-        Size:
-      %td
-        = f.text_field :size, :size => 10
-        %span.gray
-          optional
-    %tr
-      %td
-        Product SKU:
-      %td
-        = f.text_field :sku, :size => 10
+  %tr
+    %td
+      = f.label :size, "Size:"
+    %td
+      = f.text_field :size, :size => 10
+      %span.gray
+        optional
+  %tr
+    %td
+      = f.label :sku, "Product SKU/ Product ID:"
+    %td
+      = f.text_field :sku, :size => 10
   %tr
     %td
       Price:
@@ -33,10 +34,11 @@
       = f.text_field :sale_price, :size => 10
       %span.gray
         optional
-  %tr
-    %td{ :colspan => "2" }
-      = f.check_box :featured
-      = f.label :featured, "Feature on main products page."
+  %tr 
+    %td
+      = f.label :is_video, "Is this a Video?"
+    %td.is-video
+      = f.check_box :is_video
   %tr
     %td{ :colspan => "2" }
       = f.check_box :display_add_cart
@@ -48,8 +50,7 @@
       = f.text_area :cart_code, :size => "50x5"
       %p.small.gray
         If you are using a third party shopping cart, paste the generated "Add to Cart" code here.
-  -if params[:product_category_id]
-    =render :partial => "video_form", :locals => {:f => f}
+  =render :partial => "video_form", :locals => {:f => f}
   - unless @product_categories.empty?
     %tr
       %td
@@ -65,16 +66,16 @@
     %tr
       %td{ :colspan => "2" }
         - fancy_submit admin_products_path do
-          = f.submit "Save Product"      
-.form-option
-  %h2
-    Related Products
-  - @products.each do |p|
-    %div
-      = check_box_tag "product[related_product_ids][]", p.id, @product.related_products.include?(p), :id => dom_id(p)
-    %label{ :for => dom_id(p) }
-      = h p.name.titleize
-  
-- fancy_submit admin_products_path do
-  = f.submit "Save Product"
+          = f.submit "Save Product" 
+- unless @product.related_products.blank?     
+  .form-option
+    %h2
+      Related Products
+    - @products.each do |p|
+      %div
+        = check_box_tag "product[related_product_ids][]", p.id, @product.related_products.include?(p), :id => dom_id(p)
+      %label{ :for => dom_id(p) }
+        = h p.name.titleize
+  - fancy_submit admin_products_path do
+    = f.submit "Save Product"
 

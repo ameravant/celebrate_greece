@@ -4,8 +4,13 @@ class Admin::ProductsController < AdminController
   add_breadcrumb "Products", nil
 
   def index
-    @products = Product.all.paginate(:page => params[:page], :per_page => 25)
-    @product_category = ProductCategory.find_by_permalink("videos")
+    if params[:product_category_id]
+      products = ProductCategory.find(params[:product_category_id]).products
+    else
+      products = Product.all
+    end
+    @products = products.paginate(:page => params[:page], :per_page => 25)
+    @category = ProductCategory.find_by_permalink("videos")
   end
 
   def new
@@ -18,7 +23,7 @@ class Admin::ProductsController < AdminController
   end
 
   def edit
-    @products = Product.find(:all, :conditions => ["id != ?", @product.id])
+    @products = Product.find(:all, :conditions => ["id != ?", @product.id]) || []
   end
   
   def destroy
@@ -36,6 +41,10 @@ class Admin::ProductsController < AdminController
   
   def create
     @product = Product.new(params[:product])
+    cats = params[:product][:category_ids] || []
+    if params[:product][:is_video]
+      cats.push(ProductCategory.find_or_create_by_name('videos').id)
+    end
     if @product.save
       flash[:notice] = "#{@product.name} created."
       redirect_to admin_products_path

@@ -1,0 +1,13 @@
+%div
+  %h2= section.title
+  %ul
+    -for feature in features 
+      %li
+        =link_to image_tag(feature.featurable.images.first.image.url(:small), :title => feature.featurable.title, :alt => feature.featurable.title), feature.featurable, :class => "product-image"
+        %p= feature.featurable.title
+        %p= feature.featurable.video_length
+        %p
+          -for cat in feature.featurable.product_categories
+            =(link_to cat.name, cat) unless cat.permalink == "videos"
+            -unless (feature.featurable.product_categories.index(cat) == -1 or feature.featurable.product_categories.size == 1)
+              = ", " 

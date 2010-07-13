@@ -12,6 +12,8 @@ module NavigationHelpers
       root_url
     when /the new video product page/
       new_admin_product_category_product_path(ProductCategory.find_by_permalink('videos'))
+    when /the admin product index page/
+      admin_products_path
     
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
