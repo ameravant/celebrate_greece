@@ -1,6 +1,6 @@
 class Admin::ProductsController < AdminController
   before_filter :find_product, :only => [ :edit, :update, :show, :destroy, :reorder ]
-  before_filter :find_categories, :only => [ :edit, :new ]
+  before_filter :find_categories, :only => [ :edit, :new, :create ]
   add_breadcrumb "Products", nil
 
   def index
@@ -41,9 +41,8 @@ class Admin::ProductsController < AdminController
   
   def create
     @product = Product.new(params[:product])
-    cats = params[:product][:category_ids] || []
     if params[:product][:is_video]
-      cats.push(ProductCategory.find_or_create_by_name('videos').id)
+      @product.product_category_ids = @product.product_category_ids << ProductCategory.find_or_create_by_name('videos').id.to_s
     end
     if @product.save
       flash[:notice] = "#{@product.name} created."

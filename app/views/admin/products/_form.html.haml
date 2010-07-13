@@ -4,6 +4,7 @@
   %style{ :type => "text/css" }
     .product-category-cell div {display:block; overflow: auto; width: 100%; height: 200px; font-size: .85em; }
     .product-category-cell ul{list-style: none; margin: 0; padding: 0 0 5px 10px;}
+    table %tr {display:table-row;}
 = error_messages_for "product"
 %table{ :cellspacing => "0" }
   %tr
@@ -76,6 +77,6 @@
         = check_box_tag "product[related_product_ids][]", p.id, @product.related_products.include?(p), :id => dom_id(p)
       %label{ :for => dom_id(p) }
         = h p.name.titleize
-  - fancy_submit admin_products_path do
-    = f.submit "Save Product"
+- fancy_submit admin_products_path do
+  = f.submit "Save Product"
 

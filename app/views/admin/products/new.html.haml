@@ -1,5 +1,6 @@
 - content_for(:title) { concat "New Product" }
 %h1= yield :title
+=debug params
 - form_for :product, :url => admin_products_path, :html => { :onsubmit => "form_submitted()" } do |f|
   = render :partial => "form", :locals => { :f => f }
 
