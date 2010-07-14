@@ -1,4 +1,68 @@
+- content_for(:meta_title) { concat @product.name }
+- content_for(:meta_description) { concat truncate(strip_tags(@product.description), 250) unless @product.description.blank? }
+
+/ Add google cart here if needed
+-if @cms_config["site_settings"]["google_merchant_id"]
+  /Add this line to the script tag to enable sandbox testing
+  - content_for :footer do
+    ==<script id="googlecart-script" type="text/javascript" src="http://checkout.google.com/seller/gsc/v2/cart.js?mid=#{@cms_config["site_settings"]["google_merchant_id"]}" post-to-sandbox="#{RAILS_ENV=="development"}" currency="USD"></script>
+
+%h1= @product.name
+= render :partial => "/shared/image_box", :locals => { :owner => @product } unless @product.images.empty?
+-if @product.price && !@product.is_video
+  #pricing
+    %h2
+      Pricing
+    %div{:class => "add-to-cart product"}
+      %span.product-title= @product.name
+      %br
+      = "Size: #{@product.size}<br />" unless @product.size.blank?
+      = "Product SKU: #{@product.sku}<br />" unless @product.sku.blank?
+      = "Weight: #{@product} <br />" unless @product.weight.blank?
+      -if @product.sale_price
+        %span.regular-price= "Price: #{number_to_currency(@product.price)}"
+        %span.sale-price.product-price= "Sale Price: #{number_to_currency(@product.sale_price)}"
+      -else
+        %span.product-price= "Price: #{number_to_currency(@product.price)}"
+      -if @product.weight
+        %input.product-weight{:type=>"hidden", :value=>"#{@product.weight}"}
+      %br
+      - if !@product.cart_code.blank?
+        = @product.cart_code
+      - elsif @cms_config["site_settings"]["google_merchant_id"] and @product.display_add_cart and @product.price
+        %div.googlecart-add-button{:role=>"button", :alt=>"Add to cart", :tabindex=>"0", :style => "position: relative;"}
+    
+%h2
+  Description
+= @product.description
+
+/Related Products
+- unless @product.related_products.blank?
+  -if @product.is_video?
+    %div.related-videos
+      %h2 Related Products
+      -size = (@product.related_products.size/2).floor
+      -@product.related_products.each_slice(size) do |slice|
+        %ul
+          -for product in slice
+            %li
+              =link_to image_tag(product.images.first.image.url(:small), :title => product.title, :alt => product.title), product, :class => "product-image"
+              %p= product.title
+              %p= product.video_length
+              %p
+                -for cat in product.product_categories
+                  =(link_to cat.name, cat) unless cat.permalink == "videos"
+                  -unless (product.product_categories.index(cat) == -1 or product.product_categories.size == 1)
+                    = ", "
+  -else
+    %h2
+      Related Products
+    %ul
+      - for product in @product.related_products
+        %li= link_to(product.name, product_path(product))
 -if @product.is_video?
-  =render :partial => "show_video"
+  = render :partial => "video_sidecolumn" 
 -else
-  =render :partial => "show"
+  - unless @testimonial.blank?
+    = render :partial => "sidecolumn"
+    /= render :partial => "sidecolumn2"
