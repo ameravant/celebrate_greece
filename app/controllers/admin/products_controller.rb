@@ -23,7 +23,9 @@ class Admin::ProductsController < AdminController
   end
 
   def edit
-    @products = Product.find(:all, :conditions => ["id != ?", @product.id]) || []
+    @products = @product.is_video ? Product.video.active.reject! {|c| c.id == @product.id} : Product.active.reject!{|c| c.id == @product.id}
+    @products ||= []
+    @related_products = @product.related_products
   end
   
   def destroy

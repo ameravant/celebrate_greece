@@ -8,7 +8,10 @@
     ==<script id="googlecart-script" type="text/javascript" src="http://checkout.google.com/seller/gsc/v2/cart.js?mid=#{@cms_config["site_settings"]["google_merchant_id"]}" post-to-sandbox="#{RAILS_ENV=="development"}" currency="USD"></script>
 
 %h1= @product.name
-= render :partial => "/shared/image_box", :locals => { :owner => @product } unless @product.images.empty?
+-if @product.is_video
+  =@product.embed_code
+-else
+  = render :partial => "/shared/image_box", :locals => { :owner => @product } unless @product.images.empty?
 -if @product.price && !@product.is_video
   #pricing
     %h2
@@ -32,8 +35,7 @@
       - elsif @cms_config["site_settings"]["google_merchant_id"] and @product.display_add_cart and @product.price
         %div.googlecart-add-button{:role=>"button", :alt=>"Add to cart", :tabindex=>"0", :style => "position: relative;"}
     
-%h2
-  Description
+%h2.clear-both Description
 = @product.description
 
 /Related Products
@@ -41,14 +43,16 @@
   -if @product.is_video?
     %div.related-videos
       %h2 Related Products
-      -size = (@product.related_products.size/2).floor
+      -size = @product.related_products.size == 1 ? 1 : (@product.related_products.size/2).ceil
       -@product.related_products.each_slice(size) do |slice|
         %ul
           -for product in slice
             %li
               =link_to image_tag(product.images.first.image.url(:small), :title => product.title, :alt => product.title), product, :class => "product-image"
               %p= product.title
-              %p= product.video_length
+              %p 
+                Length
+                = product.video_length.strftime('%H:%M:%S') || "N/A"
               %p
                 -for cat in product.product_categories
                   =(link_to cat.name, cat) unless cat.permalink == "videos"

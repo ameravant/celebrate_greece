@@ -24,7 +24,7 @@
       = f.label :sku, "Product SKU/ Product ID:"
     %td
       = f.text_field :sku, :size => 10
-  %tr
+  %tr.non-video-form
     %td
       Price:
     %td
@@ -40,11 +40,16 @@
       = f.label :is_video, "Is this a Video?"
     %td.is-video
       = f.check_box :is_video
-  %tr
+  %tr.video-form 
+    %td
+      = f.label :active
+    %td
+      = f.check_box :active
+  %tr.non-video-form
     %td{ :colspan => "2" }
       = f.check_box :display_add_cart
       = f.label :display_add_cart, "Display add to cart button."
-  %tr
+  %tr.non-video-form
     %td
       Add to Cart Code:
     %td
@@ -68,13 +73,13 @@
       %td{ :colspan => "2" }
         - fancy_submit admin_products_path do
           = f.submit "Save Product" 
-- unless @product.related_products.blank?     
-  .form-option
-    %h2
-      Related Products
-    - @products.each do |p|
+.form-option
+  %h2
+    Related Products
+  - @products.each do |p|
+    -unless p.is_video && p.images.size < 1
       %div
-        = check_box_tag "product[related_product_ids][]", p.id, @product.related_products.include?(p), :id => dom_id(p)
+        = check_box_tag "product[related_product_ids][]", p.id, @product.related_product_ids.include?(p.id), :id => dom_id(p)
       %label{ :for => dom_id(p) }
         = h p.name.titleize
 - fancy_submit admin_products_path do
