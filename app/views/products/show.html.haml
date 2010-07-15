@@ -65,7 +65,7 @@
       - for product in @product.related_products
         %li= link_to(product.name, product_path(product))
 -if @product.is_video?
-  = render :partial => "video_sidecolumn" 
+  = render :partial => "video_sidecolumn", :locals => {:product => @product, :category => @category }
 -else
   - unless @testimonial.blank?
     = render :partial => "sidecolumn"

@@ -5,15 +5,25 @@ class ProductsController < ApplicationController
 	before_filter :find_page
 
   def index
-    @products = Product.all(:conditions => { :featured => true })
-    @heading = "Product"
-    add_breadcrumb 'Product'
+    if !params[:tag].blank?
+      # Filter articles by tag
+      @products = params[:product_category_id] == ProductCategory.find_by_name("videos").id ? Product.active.video.find_tagged_with(params[:tag]) : Product.active.find_tagged_with(params[:tag])
+      add_breadcrumb "Products", products_path
+      add_breadcrumb params[:tag]
+    elsif params[:product_category_id]
+      @products = ProductCategory.find(params[:product_category_id]).parent.name == "videos" ? ProductCategory.find(params[:product_category_id]).products.active.video : ProductCategory.find(params[:product_category_id]).products.active
+    else
+      @products = Product.all(:conditions => { :featured => true })
+      @heading = "Product"
+     add_breadcrumb 'Product'
+   end
   end
 
   def show
     begin
       @menu_selected = "products"
       @product = Product.find params[:id], :conditions => { :active => true, :deleted => false }
+      @category = ProductCategory.find_by_name("Wholesale")
       @heading = @product.name
       @testimonial = Testimonial.find(:all, :conditions => ["quotable_id = ?" , @product.id]).sort_by(&:rand).first #Select a random testimonial
       add_breadcrumb 'Products', 'products_path'
