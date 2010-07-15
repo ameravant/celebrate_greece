@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   def index
     if !params[:tag].blank?
       # Filter articles by tag
-      @products = params[:product_category_id] == ProductCategory.find_by_name("videos").id ? Product.active.video.find_tagged_with(params[:tag]) : Product.active.find_tagged_with(params[:tag])
+      @products = params[:product_category_id] == ProductCategory.videos.id ? Product.videos_tagged_with(params[:tag]) : Product.active.find_tagged_with(params[:tag])
       add_breadcrumb "Products", products_path
       add_breadcrumb params[:tag]
     elsif params[:product_category_id]

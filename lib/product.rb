@@ -3,4 +3,7 @@ class Product < ActiveRecord::Base
   acts_as_taggable
   named_scope :video, :conditions => ["is_video = ?", 't']
   named_scope :active, :conditions => ["active = ?", 't']
+  def self.videos_tagged_with(tag)
+    active.video.find_tagged_with(tag)
+  end
 end
