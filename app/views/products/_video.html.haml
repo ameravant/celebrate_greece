@@ -1,0 +1,8 @@
+%li
+  =link_to image_tag(video.images.first.image.url(size), :title => video.title, :alt => video.title), video, :class => "product-image"
+  %p= "Title: %s" % video.title
+  %p= "Length: %s" % video.video_length.strftime('%H:%M:%S') if video.video_length
+  %p
+    -for cat in video.product_categories
+      -unless cat.permalink == "videos" || cat.private?
+        %span=(link_to cat.name, cat) + " "

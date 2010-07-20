@@ -8,4 +8,8 @@ class ProductCategory < ActiveRecord::Base
   def self.videos
     find_by_name("videos")
   end
+  def is_video?
+    vid_id = ProductCategory.find_by_permalink("videos").id
+    self.id == vid_id || self.parent_id == vid_id
+  end
 end

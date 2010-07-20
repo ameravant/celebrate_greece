@@ -14,8 +14,14 @@ class ProductsController < ApplicationController
       @products = ProductCategory.find(params[:product_category_id]).parent.name == "videos" ? ProductCategory.find(params[:product_category_id]).products.active.video : ProductCategory.find(params[:product_category_id]).products.active
     else
       @products = Product.all(:conditions => { :featured => true })
+      @all_products = Product.all
       @heading = "Product"
      add_breadcrumb 'Product'
+   end
+   respond_to do |wants|
+     wants.html # index.html.erb
+     wants.xml { render :xml => @products.to_xml }
+     wants.rss { render :layout => false } # uses index.rss.builder
    end
   end
 

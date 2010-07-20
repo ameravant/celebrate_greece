@@ -3,8 +3,12 @@
 - content_for(:meta_description) do
   = @productcategory.description
 = render :partial => "products/sidecolumn2"
+= link_to(icon("Rss 1"), product_category_url(@productcategory, :format => :rss), :class => "rss-icon-selected", :title => "Subscribe to RSS Feed")
 %h1= @productcategory.name
 = @productcategory.body
 %ul.product-list
   -@productcategory.products.each do |p|
-    = render :partial => "/products/product", :locals => { :product => p }
+    -if @productcategory.is_video?
+      = render :partial => "/products/video", :locals => {:video => p, :size => :medium}
+    -else
+      = render :partial => "/products/product", :locals => { :product => p }

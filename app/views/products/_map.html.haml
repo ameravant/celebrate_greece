@@ -1,0 +1,40 @@
+%p
+  == Subscribe
+  = link_to(icon("Rss 1"), products_url(:format => :rss), :class => "rss-icon-selected", :title => "Subscribe to RSS Feed")
+%table.full{ :cellspacing => "0", :style => "width: 100%;" }
+  %thead
+    %tr
+      %th
+        Title
+      %th
+        Description
+      %th
+        Order
+      %th
+        Price
+      %th.center
+        UPC
+  %tbody
+    -@videos.each do |v|
+      %tr{ :class => cycle('row1', 'row2'), :id => "#{dom_id(v)}" }
+        %td
+          = link_to h(v.name), product_path(v), :title => "Read more about #{v.name}"
+        %td
+          = v.blurb || v.description
+        %td
+          - if v.dvd
+            = link_to "dvd", v.dvd
+            = " | "
+          -if v.pc_to_tv
+            = link_to "PC to TV", v.pc_to_tv
+            = " | "
+          - if v.itunes
+            = link_to "iTunes", v.itunes
+            = " | "
+          - if v.mobile
+            = link_to "mobile", v.mobile
+        %td
+          = v.price if v.price
+        %td
+          = v.upc if v.upc
+         

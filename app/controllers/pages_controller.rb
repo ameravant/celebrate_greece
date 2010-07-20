@@ -9,6 +9,9 @@ class PagesController < ApplicationController
       @images = @page.images
       @footer_pages = Page.find(:all, :conditions => {:show_in_footer => true}, :order => :footer_pos )
       @features = []
+      if @page.permalink == "map"
+        @videos = Product.video.active
+      end
       @menu.featurable_sections.each do |fs|
         @features += fs.features
       end

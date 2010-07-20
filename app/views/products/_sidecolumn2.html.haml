@@ -1,5 +1,5 @@
 - content_for :side_column_2 do
-  - if @productcategory
+  - if @productcategory && !@productcategory.private? 
     - temp_productcategory = @productcategory
     - productcategory_tree = []
     - top_productcategory = nil
@@ -16,7 +16,8 @@
       =link_to "Products", products_path
       %ul
         - for pc in @topproductcategories
-          %li
-            =link_to pc.name, pc
-            - if @productcategory and top_productcategory == pc
-              - build_children(pc.id)
+          -unless pc.private?
+            %li
+              =link_to pc.name, pc
+              - if @productcategory and top_productcategory == pc
+                - build_children(pc.id)

@@ -9,6 +9,7 @@ class ProductCategoriesController < ApplicationController
       @productcategories = ProductCategory.only_public
       @topproductcategories = ProductCategory.all(:conditions => {:parent_id => nil, :private => false})
       @productcategory = ProductCategory.find(params[:id])
+      @products = @productcategory.products
       @product_category_tmp = []
       build_tree(@productcategory)
       for product_category in @product_category_tmp.reverse
@@ -20,6 +21,11 @@ class ProductCategoriesController < ApplicationController
       end
     rescue ActiveRecord::RecordNotFound
       redirect_to '/404.html'
+    end
+    respond_to do |wants|
+      wants.html # index.html.erb
+      wants.xml { render :xml => @products.to_xml }
+      wants.rss { render :layout => false } # uses index.rss.builder
     end
   end
 
