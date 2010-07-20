@@ -25,11 +25,11 @@ class Admin::MenusController < AdminController
     if @menu.can_delete
       @menu.navigatable.destroy if @menu.navigatable_type == "Page"
       @menu.destroy
-      flash[:notice] = "#{@owner.class} \"#{@owner.title}\" has been removed from navigation."
-      redirect_back_or_default("/admin/#{@owner.class.table_name}")
+      # flash[:notice] = "#{@owner.class} \"#{@owner.title}\" has been removed from navigation."
+      #       redirect_back_or_default("/admin/#{@owner.class.table_name}")
     else
-      flash[:notice] = "Something went wrong, please try again."
-      redirect_back_or_default("/admin/#{@owner.class.table_name}")
+      # flash[:notice] = "Something went wrong, please try again."
+      #       redirect_back_or_default("/admin/#{@owner.class.table_name}")
     end
   end
 

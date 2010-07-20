@@ -21,7 +21,7 @@ function initVideoForm() {
 	jQuery('tr.non-video-form').css('display','table-row');
 	jQuery('fieldset.non-video-form').css('display','block');
   };
-  toggleBasedOnChecked('dd.form-option.is-video :checkbox', '.video-form', '.non-video-form');
+  toggleBasedOnChecked('dd.form-option.is-video :checkbox', 'fieldset.video-form', '.non-video-form');
 }
 
 jQuery(document).ready(function () {

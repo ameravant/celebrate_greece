@@ -28,9 +28,9 @@
       = f.label :active, "Active"
     %dd.form-option
       = f.check_box :active
-    %dt.form-label.is_video
+    %dt.form-label.is-video
       = f.label :is_video, "This is a video product"
-    %dd.form-option.is_video
+    %dd.form-option.is-video
       = f.check_box :is_video
     =render :partial => "video_form", :locals => {:f => f}
     %dt.form-label
@@ -56,18 +56,21 @@
           = render :partial => 'product_option', :object => @product.product_options.build
       = add_product_option_link "Add option"
     - unless @product_categories.empty?
-      %dt.form-label
-        Product Category:
-      %dd.form-option
-        - build_form_children(nil, @product)  
+      %h2 Categories
+      %ul
+        - @product_categories.each do |pc|
+          %li
+            = check_box_tag "product[product_category_ids][]", pc.id, @product.product_category_ids.include?(pc.id), :id => dom_id(pc)
+            %label{ :for => dom_id(pc) }
+            = h pc.name.titleize  
 
   - fancy_submit admin_products_path do
     = f.submit "Save Product"
   .form-option
     %h2
       Related Products
-    - @products.each do |p|
-      %ul
+    %ul
+      - @products.each do |p|
         -unless p.is_video && p.images.size < 1
           %li
             = check_box_tag "product[related_product_ids][]", p.id, @product.related_product_ids.include?(p.id), :id => dom_id(p)

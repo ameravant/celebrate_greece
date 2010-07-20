@@ -6,4 +6,7 @@ class Product < ActiveRecord::Base
   def self.videos_tagged_with(tag)
     active.video.find_tagged_with(tag)
   end
+  def price
+    self.product_options.any? ? self.product_options[0].price : nil
+  end
 end

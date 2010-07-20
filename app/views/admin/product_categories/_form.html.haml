@@ -13,6 +13,9 @@
           -if o[1] != @product_category.id
             %option{:value => o[1] , :selected => (@product_category.parent_id and o[1] == @product_category.parent_id ? "selected" : nil)}= o[0]
   %tr
+    %td= f.check_box :private
+    %td= f.label :private, "Private"
+  %tr
     %td= f.label :description, "Blurb"
     %td= f.text_area :description, :size => "30x4"
   %tr

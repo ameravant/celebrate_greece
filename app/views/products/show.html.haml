@@ -55,9 +55,7 @@
                 = product.video_length.strftime('%H:%M:%S') || "N/A"
               %p
                 -for cat in product.product_categories
-                  =(link_to cat.name, cat) unless cat.permalink == "videos"
-                  -unless (product.product_categories.index(cat) == -1 or product.product_categories.size == 1)
-                    = ", "
+                  =(link_to cat.name + " ", cat) unless cat.permalink == "videos"
   -else
     %h2
       Related Products

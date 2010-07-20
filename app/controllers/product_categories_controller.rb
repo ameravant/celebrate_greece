@@ -6,8 +6,8 @@ class ProductCategoriesController < ApplicationController
   
   def show
     begin
-      @productcategories = ProductCategory.all
-      @topproductcategories = ProductCategory.all(:conditions => {:parent_id => nil})
+      @productcategories = ProductCategory.only_public
+      @topproductcategories = ProductCategory.all(:conditions => {:parent_id => nil, :private => false})
       @productcategory = ProductCategory.find(params[:id])
       @product_category_tmp = []
       build_tree(@productcategory)
@@ -28,7 +28,7 @@ class ProductCategoriesController < ApplicationController
   def find_page
     @footer_pages = Page.find(:all, :conditions => {:show_in_footer => true}, :order => :footer_pos )
     @page = Page.find_by_permalink!('products')
-    @productcategories = ProductCategory.all(:conditions => {:parent_id => nil})
+    @productcategories = ProductCategory.all(:conditions => {:parent_id => nil, :private => false})
   end
   
   def build_tree(current_product_category)
