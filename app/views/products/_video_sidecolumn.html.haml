@@ -12,7 +12,7 @@
       -unless product.producer.blank?
         %li= "Producer: %s" % product.producer
       -unless product.video_length.blank?
-        %li= "Length: %s" % product.video_length
+        %li= "Length: %s" % product.video_length.strftime("%H:%M:%S")
       -unless product.resolution.blank?
         %li= "Resolution: %s" % product.resolution
       -unless product.aspect.blank?
@@ -24,7 +24,7 @@
       -unless product.upc.blank?
         %li= "UPC Code: %s" % product.upc
       -unless product.trailer_length.blank?
-        %li= "Trailer Length: %s" % product.trailer_length
+        %li= "Trailer Length: %s" % product.trailer_length.strftime("%H:%M:%S")
       -unless product.language.blank?
         %li= "Language: %s" % product.language
       -unless product.sku.blank?
