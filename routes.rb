@@ -1,8 +1,8 @@
-resources :product_categories do |cat|
+resources :product_categories, :has_many => :images do |cat|
   cat.resources :products
 end
 namespace :admin do |admin|
-  admin.resources :product_categories, :collection => { :reorder => :put }, :member => { :reorder => :put } do |cat|
+  admin.resources :product_categories, :has_many => :images, :collection => { :reorder => :put }, :member => { :reorder => :put } do |cat|
     cat.resources :products
     cat.resources :menus
   end

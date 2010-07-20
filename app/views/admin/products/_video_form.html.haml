@@ -1,107 +1,52 @@
-%tr.video-form
-  %td
-    =f.label :sku, "Video ID:"
-  %td
-    = f.text_field :sku, :size => 10
-%tr.video-form
-  %td
-    =f.label :embed_code, "Embed Code:"
-  %td
-    = f.text_area :embed_code, :size => "50x5", :class => "big"
-%tr.video-form
-  %td
-    = f.label :short_description, "Short Description:"
-  %td
-    = f.text_area :short_description, :size => "50x5", :class => "big"
-%tr.video-form
-  %td
-    =f.label :resolution, "Resolution:"
-  %td
-    = f.text_field :resolution, :class => "big"
-%tr.video-form
-  %td
-    =f.label :aspect, "Aspect:"
-  %td
-    = f.text_field :aspect, :class => "big"
-%tr.video-form
-  %td
-    =f.label :map, "Map:"
-  %td
-    = f.text_field :map, :class => "big"
-%tr.video-form
-  %td
-    = f.label :upc, "UPC:"
-  %td
-    = f.text_field :upc, :class => "big"
-%tr.video-form
-  %td
-    = f.label :producer, "Producer:"
-  %td
-    = f.text_field :producer, :class => "big"
-%tr.video-form
-  %td
-    =f.label :isbn_ten, "ISBN-10:"
-  %td
-    = f.text_field :isbn_ten, :class => "big"
-%tr.video-form
-  %td
-    =f.label :isbn_thirteen, "ISBN-13:"
-  %td
-    = f.text_field :isbn_thirteen, :class => "big"
-%tr.video-form
-  %td
-    =f.label :language, "Language:"
-  %td
-    = f.text_field :language, :class => "big"
-%tr.video-form
-  %td
-    =f.label :vod, "VOD:"
-  %td
-    = f.text_field :vod, :class => "big"
-%tr.video-form
-  %td
-    =f.label :video_length, "Video Length:"
-  %td
-    = f.text_field :video_length, :class => "big"
-%tr.video-form
-  %td
-    = f.label :trailer_length, "Trailer Length:"
-  %td
-    = f.text_field :trailer_length, :class => "big"
-%tr.video-form
-  %td
-    = f.label :subtitled, "Subtitled:"
-  %td
-    = f.text_field :subtitled, :class => "big"
-%tr.video-form
-  %td
-    = f.label :country, "Country:"
-  %td
-    = f.text_field :country, :class => "big"
-%tr.video-form
-  %td
-    = f.label :region, "Region:"
-  %td
-    = f.text_field :region, :class => "big"
-%tr.video-form
-  %td.top= f.label :tag_list, "Tags"
-  %td
+%fieldset.video-form
+  %dt.label=f.label :sku, "Video ID:"
+  %dd.form-option= f.text_field :sku, :size => 10
+  %dt.label=f.label :embed_code, "Embed Code:"
+  %dd.form-option= f.text_area :embed_code, :size => "50x5", :class => "big"
+  %dt.label= f.label :short_description, "Short Description:"
+  %dd.form-option= f.text_area :short_description, :size => "50x5", :class => "big"
+  %dt.label=f.label :resolution, "Resolution:"
+  %dd.form-option= f.text_field :resolution, :class => "big"
+  %dt.label=f.label :aspect, "Aspect:"
+  %dd.form-option= f.text_field :aspect, :class => "big"
+  %dt.label=f.label :map, "Map:"
+  %dd.form-option= f.text_field :map, :class => "big"
+  %dt.label= f.label :upc, "UPC:"
+  %dd.form-option= f.text_field :upc, :class => "big"
+  %dt.label= f.label :producer, "Producer:"
+  %dd.form-option= f.text_field :producer, :class => "big"
+  %dt.label=f.label :isbn_ten, "ISBN-10:"
+  %dd.form-option= f.text_field :isbn_ten, :class => "big"
+  %dt.label=f.label :isbn_thirteen, "ISBN-13:"
+  %dd.form-option= f.text_field :isbn_thirteen, :class => "big"
+  %dt.label=f.label :language, "Language:"
+  %dd.form-option= f.text_field :language, :class => "big"
+  %dt.label=f.label :vod, "VOD:"
+  %dd.form-option= f.text_field :vod, :class => "big"
+  %dt.label=f.label :video_length, "Video Length:"
+  %dd.form-option= f.text_field :video_length, :class => "big"
+  %dt.label= f.label :trailer_length, "Trailer Length:"
+  %dd.form-option= f.text_field :trailer_length, :class => "big"
+  %dt.label= f.label :subtitled, "Subtitled:"
+  %dd.form-option= f.text_field :subtitled, :class => "big"
+  %dt.label= f.label :country, "Country:"
+  %dd.form-option= f.text_field :country, :class => "big"
+  %dt.label= f.label :region, "Region:"
+  %dd.form-option= f.text_field :region, :class => "big"
+  %dt.label= f.label :tag_list, "Tags"
+  %dd.form-option
     = f.text_field :tag_list, :size => 60
     %br
     %span{:class => "small gray"} Separate words or phrases with a comma
-%tr.video-form 
-  %td.top 
-    %h2 Purchase Options
-    %span{:class => "small gray"} Purchase links for each format 
-%tr.video-form
-  %td= f.label :dvd, "DVD:"
-  %td= f.text_field :dvd
-%tr.video-form
-  %td= f.label :itunes, "iTunes:"
-  %td=f.text_field :itunes
-%tr.video-form
-  %td=f.label :pc_to_tv, "PC to TV/Computer:"
-  %td=f.text_field :pc_to_tv
-%tr.video-form
-  %td=f.label :mobile, "Mobile Video:"
-  %td=f.text_field :mobile
+  %dt.label 
+    .top 
+      %h2 Purchase Options
+      %span{:class => "small gray"} Purchase links for each format 
+  %dt.label= f.label :dvd, "DVD:"
+  %dd= f.text_field :dvd
+  %dt.label= f.label :itunes, "iTunes:"
+  %dd=f.text_field :itunes
+  %dt.label=f.label :pc_to_tv, "PC to TV/Computer:"
+  %dd=f.text_field :pc_to_tv
+  %dt.label=f.label :mobile, "Mobile Video:"
+  %dd.form-option=f.text_field :mobile

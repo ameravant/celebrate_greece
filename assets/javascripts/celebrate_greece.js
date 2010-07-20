@@ -2,11 +2,11 @@ function toggleBasedOnChecked(checkbox, target, target2) {
   jQuery(checkbox).click( 
     	function() {
           if(this.checked){
-            jQuery(target).css("display", "table-row");
+            jQuery(target).css("display", "block");
             jQuery(target2).css("display", "none");
           }else{
             jQuery(target).css("display", "none");
-            jQuery(target2).css("display", "table-row");
+            jQuery(target2).css("display", "block");
          }
   	 }
    );
@@ -14,12 +14,14 @@ function toggleBasedOnChecked(checkbox, target, target2) {
 function initVideoForm() {
   if (jQuery('#product_is_video').is(':checked')) {
 	jQuery('tr.video-form').css('display', 'table-row');
-	jQuery('tr.non-video-form').css('display','none');
+	jQuery('fieldset.video-form').css('display', 'block');
+	jQuery('.non-video-form').css('display','none');
   }else{
-	jQuery('tr.video-form').css('display', 'none');
+	jQuery('.video-form').css('display', 'none');
 	jQuery('tr.non-video-form').css('display','table-row');
+	jQuery('fieldset.non-video-form').css('display','block');
   };
-  toggleBasedOnChecked('td.is-video :checkbox', 'tr.video-form', 'tr.non-video-form');
+  toggleBasedOnChecked('dd.form-option.is-video :checkbox', '.video-form', '.non-video-form');
 }
 
 jQuery(document).ready(function () {
