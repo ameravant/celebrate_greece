@@ -20,8 +20,6 @@
     = ninja_parse(@page.body)
   - else
     = @page.body
--if @page.permalink == "map"
-  = render :partial => "products/map"
 - if @page.permalink == "home" and !@settings.homepage_banner.blank?
   - content_for :banner do
     = @settings.homepage_banner

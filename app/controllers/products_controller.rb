@@ -16,8 +16,13 @@ class ProductsController < ApplicationController
       @products = Product.all(:conditions => { :featured => true })
       @all_products = Product.all
       @heading = "Product"
+    end
+    @map = false
+    if request.request_uri =~ /^\/map$/
+      @videos = Product.video.active
+      @map = true
+    end
      add_breadcrumb 'Product'
-   end
    respond_to do |wants|
      wants.html # index.html.erb
      wants.xml { render :xml => @products.to_xml }

@@ -5,6 +5,9 @@ class ProductCategoriesController < ApplicationController
   before_filter :find_page
   
   def show
+    #vimeo info
+    # Consumer Key: c3fd124f2ac903553dfd1df3bd62a681 
+    # Consumer Secret: 7e32b1f74210ee86 Please do not share this with others
     begin
       @productcategories = ProductCategory.only_public
       @topproductcategories = ProductCategory.all(:conditions => {:parent_id => nil, :private => false})

@@ -4,6 +4,10 @@
   = @productcategory.description
 = render :partial => "products/sidecolumn2"
 = link_to(icon("Rss 1"), product_category_url(@productcategory, :format => :rss), :class => "rss-icon-selected", :title => "Subscribe to RSS Feed")
+-if @productcategory.permalink == "stock-footage"
+  - form_for :api_searches, :url => api_searches_path do |f|
+    =f.text_field :vimeo_search
+    =f.submit "search"
 %h1= @productcategory.name
 = @productcategory.body
 %ul.product-list

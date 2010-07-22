@@ -7,3 +7,5 @@ namespace :admin do |admin|
     cat.resources :menus
   end
 end
+resources :api_searches#, :only => [:create, :index]
+resources :products, :as => "map", :only => [:index]

@@ -1,5 +1,5 @@
 xml.instruct! :xml, :version=>"1.0" 
-xml.rss(:version=>"2.0"){
+xml.rss(:version=>"2.0", "xmlns:media" => "http://search.yahoo.com/mrss/"){
   xml.channel{
     xml.title(@cms_config['website']['name'])
     # xml.description("")
@@ -15,8 +15,28 @@ xml.rss(:version=>"2.0"){
           xml.video_length(product.video_length.strftime("%H:%M:%S")) if product.video_length
           xml.price(product.price)
           xml.upc(product.upc)
+          xml.link
+          xml.media :title
+          xml.media :description  
+          xml.media :content, :type => "video/quicktime", :url => product.embed_code.gsub(/^.*embed src=/, '').gsub(/type.*$/, '').gsub(/^\"/, '').strip!
+          xml.media :player
+          xml.media :thumbnail
         end
       end
     end
   }
 }
+====
+
+xml.instruct! :xml
+xml.rss "version" => "2.0", "xmlns:media" => "http://search.yahoo.com/mrss/" do
+  xml.channel do
+    for item in @menu.items
+      xml.item do
+        xml.title item.name
+        xml.media :content, :type => "image/jpg", :url => item.picture.url(:original)
+        xml.media :description, item.description, :type => "plain"
+      end
+    end
+  end
+ end

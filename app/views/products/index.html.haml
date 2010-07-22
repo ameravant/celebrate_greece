@@ -1,7 +1,9 @@
 - content_for(:meta_title) { concat "Store" }
-
-= render :partial => "sidecolumn2"
+-unless @map
+  = render :partial => "sidecolumn2"
 %h1
   Products
+-if @map
+  = render :partial => "map"
 %ul.product-list
   =render :partial => "product", :collection => @products
