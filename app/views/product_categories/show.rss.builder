@@ -26,17 +26,3 @@ xml.rss(:version=>"2.0", "xmlns:media" => "http://search.yahoo.com/mrss/"){
     end
   }
 }
-====
-
-xml.instruct! :xml
-xml.rss "version" => "2.0", "xmlns:media" => "http://search.yahoo.com/mrss/" do
-  xml.channel do
-    for item in @menu.items
-      xml.item do
-        xml.title item.name
-        xml.media :content, :type => "image/jpg", :url => item.picture.url(:original)
-        xml.media :description, item.description, :type => "plain"
-      end
-    end
-  end
- end

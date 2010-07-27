@@ -1,7 +1,6 @@
 class ProductCategoriesController < ApplicationController
   unloadable
-  add_breadcrumb 'Home', 'root_path'
-  add_breadcrumb 'Products', 'products_path'
+  
   before_filter :find_page
   
   def show

@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   unloadable
-  add_breadcrumb 'Home', 'root_path'
 
 	before_filter :find_page
 
