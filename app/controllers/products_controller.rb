@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
     begin
       @menu_selected = "products"
       @product = Product.find params[:id], :conditions => { :active => true, :deleted => false }
-      @category = ProductCategory.find_by_name("Wholesale")
+      @category = ProductCategory.find_or_create_by_name("Wholesale")
       @heading = @product.name
       @testimonial = Testimonial.find(:all, :conditions => ["quotable_id = ?" , @product.id]).sort_by(&:rand).first #Select a random testimonial
       add_breadcrumb 'Products', 'products_path'
