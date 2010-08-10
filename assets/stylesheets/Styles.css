@@ -1,0 +1,78 @@
+﻿input {font-size:16px;border:1px solid #006699;background:#FFFFFD;padding:0px;margin:0px;}
+.submit {color:#FFFFCC;background:#006699;border:#66CCFF 1px ridge;font-size:13px;font-weight:bold;margin-bottom:0px;}
+.delete {color:#FFFFCC;background:#990000;border:#FFCC99 1px ridge;font-size:13px;font-weight:bold;margin-bottom:0px;}
+input.up {color:#FFFFCC;background:#006699 url(images/sortup.gif) no-repeat 1px top;border:#66CCFF 1px ridge;font-size:12px;font-weight:bold;margin-bottom:0px;padding:2px;height:20px;overflow:hidden;width:20px;overflow:hidden;}
+input.down {color:#FFFFCC;background:#006699 url(images/sortdown.gif) no-repeat 1px 2px;border:#66CCFF 1px ridge;font-size:12px;font-weight:bold;margin-bottom:0px;padding:2px;height:20px;overflow:hidden;width:20px;overflow:hidden;}
+textarea {font-size:12px;border:1px solid #006699;background:#FFFFFD;padding:4px;}
+
+a {color:#003366;font-weight:bold;text-decoration:none;}
+
+.MainDiv {padding:0px;width:760px;font-family:Arial, Helvetica, sans-serif;text-align:left;min-height:500px;}
+.Menu {border-bottom:1px solid #663333;background:#FEF7E9 url(images/menubg.gif) repeat-x;padding:5px;white-space:nowrap;height:17px;}
+.SubMenu {padding:4px;padding-top:7px;float:left;width:150px;}
+.SubMenu .MenuItem {padding:4px;padding-top:7px;float:left;width:145px;text-align:left;text-indent:20px;font-size:14px;background:url(images/submenuitembg.gif)}
+.SubMenu a:hover .MenuItem {background:url(images/submenuitembghover.gif)}
+.SubMenu a:active .MenuItem {background:url(images/submenuitembgactive.gif)}
+.MenuItem {padding:4px;padding-left:10px;padding-right:10px;border:1px solid #003366;border-top:0px none;margin:0px;border-right:0px none;background:url(images/menuitembg.gif) no-repeat top right;}
+.MenuItemDis {font-size:13px;padding:4px;padding-left:10px;padding-right:10px;border:1px solid #003366;margin:0px;background:#E6F2FF url(images/menuitemdisbg.gif) repeat-x;}
+.BodyDiv {padding:10px; }
+a:link .MenuItem {text-decoration:none;font-size:13px;font-weight:bold;color:#336699;}
+a:visited .MenuItem {text-decoration:none;font-size:13px;font-weight:bold;color:#336699;}
+a:hover .MenuItem {font-size:13px;color:#000000;background:url(images/menuitembghover.gif) no-repeat top right;cursor:pointer;}
+a:active .MenuItem {}
+.MenuItemSel {background:#FFFFFF;text-decoration:none;font-size:13px;font-weight:bold;color:#336699;padding:4px;padding-left:10px;padding-right:10px;border:1px solid #003366;border-bottom:1px solid #FFFFFF;}
+.ItemBox {background:#d3e0e3 url(images/itembox.gif) repeat-x top;padding:5px;border:1px solid #b4c3c6;font-size:12px;border-top:0px none; color:#001224; vertical-align:middle}
+.ItemBox:hover {background:url(images/itemboxhover.gif) repeat-x top #c6dfd2; color:#001224;}
+.ItemBoxAlt {background:#e4eced url(images/itemboxalt.gif) repeat-x top;padding:5px;border:1px solid #b4c3c6;font-size:12px;border-top:0px none; color:#001224; vertical-align:middle}
+.ItemBoxAlt:hover {background:url(images/itemboxhover.gif) repeat-x top #c6dfd2; color:#001224;}
+.ItemBoxSel {background:#e45a63 url(images/itemboxselect.gif) repeat-x top;color:#ffffcc;padding:5px;border:1px solid #003366;font-size:12px;border-top:0px none; vertical-align:middle}
+.ItemBoxAttach {border:1px solid #003366;background:#ECF5FF url(images/itembox.gif) repeat-x top;padding:5px;}
+.HeadItemBox {background: #4d8ba6 url(images/itemboxhead.gif) repeat-x top;
+              padding:5px;
+              border:1px solid #003366;
+              border-top:0px none; 
+              color:#FFFFCC;
+              font-size:10pt; 
+              font-weight: normal;
+              }
+
+.PagerStatic a 
+{
+    border:solid 1px #9c9c00;
+    padding: 4px;
+    background: #ecec99;
+}
+.PagerStatic a:hover 
+{
+    background: #dd9;
+}
+
+.HeadItemBox-Lg {background: #ffffff url(images/top-header.gif) no-repeat 5px top; height: 27px; text-indent: 20px; text-transform: uppercase; font-size: 13px !important; color: #666666; line-height: 27px; font-weight: normal !important; text-align: left; margin: 10px 0 0 0;}
+.HeadItemBox a{color:#FFFFCC;}
+.HeadItemBox a:hover
+{
+    color: #000080 !important;
+}
+.HeadItemBoxStatic a{color:#FFFFCC;}
+.HeadItemBoxStatic a:hover
+{
+    color: #000080 !important;
+}
+.ItemBox1 {background:#ECF5FF url(images/itembox.gif) repeat-x top;padding:5px;border-bottom:1px solid #003366;font-size:12px;}
+.MainBox {background:#ECF5FF;border:1px solid #003366;font-size:12px;margin-left:185px;}
+form {margin:0px;padding:0px;}
+h1 {font-size:20px;color:#336699;margin-top:0px;padding:8px;}
+.style1 {
+	color: #990000;
+	font-weight: bold;
+}
+.ItemBoxLabel {width:75px;float:left;font-weight:bold;}
+.LoginBox {background:#ECF5FF;padding:5px;border:1px solid #003366;width:375px;font-size:12px;margin:10px;}
+.ItemBoxLabel2 {width:250px;font-size:14px;}
+.FloatLeft {float:left;}
+.FloatRight {float: right;}
+.bottommargin {margin-bottom:20px;}
+a .LinkButton {color: #FFFFCC; padding:3px;}
+a:link .LinkButton {color: #FFFFCC; padding:3px;}
+a:visited .LinkButton {color: #FFFFCC; padding:3px;}
+a:hover .LinkButton {color: #003366;}

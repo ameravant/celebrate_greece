@@ -1,0 +1,10 @@
+﻿body 
+{
+	background:url("images/bg.jpg") repeat-x top;
+	margin:0px;
+	padding:0px;
+}
+.maindiv 
+{
+	background:url("images/design.jpg") top center no-repeat; height:836px;
+}

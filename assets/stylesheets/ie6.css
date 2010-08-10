@@ -1,0 +1,9 @@
+﻿.FixedColumn #sidebar2 
+{
+	float: right;
+	width: 205px !important;
+	background: #FFFFFF;
+	padding: 3px 10px 15px 5px !important;
+	border-left: dotted 1px #999999;
+	border-bottom: dotted 1px #999999;
+}

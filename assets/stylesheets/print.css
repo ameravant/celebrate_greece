@@ -1,0 +1,13 @@
+﻿#sidebar1 {display: none; float: none;}
+.BodyDiv {width: 700px !important;overflow: hidden;}
+#mainContent {margin-left: 0 !important; padding: 0 0 0 0; width: 700px !important; overflow: hidden;}
+.submenu {display: none !important;}
+.topmenu {display: none !important;}
+#container {width: 700px !important;}
+#header img {width: 700px !important;}
+.FixedColumn #footer { 	width: 700px !important;}
+#top {display: none;}
+#header {display: none;}
+.clearfloat {display: none;}
+.print-logo {clear: both; display: block; margin: 0 auto;}
+#sidebar2 {display: none;}
