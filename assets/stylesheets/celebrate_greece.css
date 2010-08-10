@@ -5,3 +5,4 @@ div#featured-videos div {width:31%; float:left; display:inline;clear:none;paddin
 div#featured-videos ul {float:left;margin:0;padding:0; list-style-type:none;}
 div#featured-videos ul li {padding:0; margin-top:10px;}
 .jsenabled .video-form{display:none; clear:left;}
+#googlecart-widget-head, #googlecart-widget-body, #googlecart-widget-iframe {margin-top:4em;}
