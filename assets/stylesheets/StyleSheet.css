@@ -1,0 +1,37 @@
+﻿body {font-family:Arial;
+ line-height: 25px !important;
+}
+a:link
+{
+	text-decoration: none;
+	font-size: 14px;
+	color: #003366;
+}
+a:visited
+{
+	text-decoration: none;
+	font-size: 14px;
+	color: #003366;
+}
+a:hover
+{
+	text-decoration: none;
+	font-size: 14px;
+	color: #330066;
+	border-bottom: #000066 1px solid;
+	background-color: #ffffcc;
+}
+.floatleft {float:left;}
+.inline {display:inline;}
+.gridview {font-size:12px;font-family:Arial;}
+.gridviewheader {font-size:14px;font-weight:bold;color:Aqua;background-color:Navy}
+.gridviewheader a:link {color:Aqua;}
+.gridviewheader:hover {background-color:Gray}
+.gridviewselected
+{
+	color: #ffffcc;
+	background-color: #990000;
+}
+.Right {text-align:right;}
+.watermark {font-size: 8pt; color: #6699CC;}
+.BorderBox {border:solid 1px #003399; width: 748px; margin: 0 0 20px 0}

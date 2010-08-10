@@ -1,0 +1,59 @@
+﻿#top 
+{
+	background:url(images/page-top.jpg) repeat-x;
+	height:7px;
+	line-height:7px;
+	overflow:hidden;
+}
+
+#bottom 
+{
+	background:url(images/page-top.jpg) repeat-x;
+	height:7px;
+	line-height:7px;
+	overflow:hidden;
+}
+
+#bg-column-top 
+{
+	background:url(images/columns-top.jpg) no-repeat top center;
+}
+
+#bg-column-repeat 
+{
+	background:url(images/columns-middle.jpg) repeat-y center;
+}
+#inner-footer {
+    text-align: right;
+    margin: 0 0 0 auto;
+    padding:2px;
+}
+#inner-footer a {color:#3c6c9c;}
+#inner-footer a:hover {color:#3c9cce}
+
+#topmenu-outer 
+{
+}
+
+#topmenu 
+{
+	border: 1px solid #bba180;
+	background: #f0d9b9;
+	margin-left:169px;
+	margin-top:3px;
+	width:757px;
+}
+
+#content-outer 
+{
+    background: url(images/left-sidebar.gif) repeat-y left 4px;
+}
+#MainContent
+{
+    line-height: 150% !important;
+}
+#MainContent a:hover
+{
+    border-bottom: dotted 1px #003366;
+    
+}

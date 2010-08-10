@@ -1,0 +1,47 @@
+﻿body {font: 100% Arial, Helvetica, Verdana, sans-serif;}
+h2 {font-family:Helvetica, "Arial Narrow", Arial, "Myriad Pro", Myriad, sans-serif;font-weight:600;font-size:18px;color:#183c60;border-bottom:1px dotted #183c60;padding:0px;margin:0px 0px 15px 0px;}
+h3 {font-family:Helvetica, "Arial Narrow", Arial, "Myriad Pro", Myriad, sans-serif;font-weight:600;font-size:14px;color:#183c60;border-bottom:1px dotted #183c60;padding:0px;margin:0px 0px 15px 0px;}
+h4 {font-family:Helvetica, "Arial Narrow", Arial, "Myriad Pro", Myriad, sans-serif;font-weight:600;font-size:14px;color:#183c60;margin-top:0px;padding:0px;margin:0px;}
+
+.Font-8pt {font-size: 8pt;}
+.Font-12pt {font-size: 12pt;}
+.Font-14pt {font-size: 14pt;}
+
+.BlueFont-8pt {color: #4594C1; font-size: 8pt;}
+.BlueFont-12pt {color: #4594C1; font-size: 12pt;}
+.BlueFont-14pt {color: #4594C1; font-size: 14pt;}
+
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+
+} 
+
+.fltrt {
+	float: right;
+	margin-left: 8px;
+}
+.fltlft {
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat {
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+.ImagePad {padding:2px 5px 0px 0px}
+.rss {
+	background-color: #F28C31;
+	color: #FFFFFF;
+	font-family: verdana;
+	font-size: 8pt;
+	font-weight: bold;
+	border: 1px solid #800000;
+	padding: 1px;
+	margin-top:4px;
+}
+a:hover .rss {
+	background-color: #FFCC99;
+	color: #333333;
+}

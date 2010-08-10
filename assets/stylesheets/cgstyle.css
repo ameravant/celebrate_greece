@@ -1,0 +1,173 @@
+﻿body  {
+	font: 100% Arial, Helvetica, Verdana, sans-serif;
+	background: #ede4d4;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	color: #000000;
+}
+h3 {font-family:Helvetica, "Arial Narrow", Arial, "Myriad Pro", Myriad, sans-serif;font-weight:600;font-size:14px;color:#183c60;border-bottom:1px dotted #183c60;padding:0px;margin:15px 0px 15px 0px;}
+h4 {font-family:Helvetica, "Arial Narrow", Arial, "Myriad Pro", Myriad, sans-serif;font-weight:600;font-size:14px;color:#183c60;margin-top:0px;padding:0px;margin:0px;}
+form {margin:0px;padding:0px;}
+#top {
+	background:url(images/page-top.jpg) repeat-x;
+	height:7px;
+	line-height:7px;
+	overflow:hidden;
+}
+#bottom {
+	background:url(images/page-top.jpg) repeat-x;
+	height:7px;
+	line-height:7px;
+	overflow:hidden;
+}
+#bg-column-top {
+	background:url(images/columns-top.jpg) no-repeat top center;
+}
+#bg-column-repeat {
+	background:url(images/columns-middle.jpg) repeat-y center;
+}
+.FixedColumn #container { 
+	width: 931px;
+	background: #FFFFFF;
+	margin: 0 auto;
+	text-align: left;
+} 
+.FixedColumn #header { 
+	background: #ede4d4; 
+	padding: 0;
+} 
+.FixedColumn #header h1 {
+	margin: 0;
+	padding: 0;
+}
+.FixedColumn #sidebar1 {
+	float: left;
+	width: 164px;
+	background: #f0d9b9;
+	border-left: 0px;
+	border: 1px solid #bba180;
+	margin-top: 3px;
+	margin-right: 3px;
+	padding: 0px;
+	height: 100%;
+}
+.sidebar1box {background:url(images/left-column-box.gif) #f0dabb top repeat-x;border:1px solid #bba180;margin:3px;padding:3px;margin-left:0px;border-left:0px none;}
+.SearchButton {
+	height:20px;
+	width:25px;
+	/*_width:20px;*/
+	#width:20px;
+	background:url(images/searchbutton.png) no-repeat;
+	margin-left:2px;
+	margin-right:0px;
+	font-size:10px;
+	border:0px none;
+	padding:2px;
+	padding-top:0px;
+	padding-bottom:0px;
+}
+.SearchBox {width:106px;font-size:12px;border:0px none;background:none;margin-left:2px;}
+.SearchFrame {border:1px solid #003366;background:#FFFFFF;height:20px;}
+.FixedColumn #sidebar2 {
+	float: right;
+	width: 5px;
+	background: #FFFFFF;
+	padding: 3px 15px 15px 10px;
+}
+.Featured-Box {background:url(images/sproket.gif) bottom repeat-x;padding-bottom:20px;margin-top:10px;height:75px;overflow:visible;}
+.Featured-Head {text-indent:10px;color:#990000;font-weight:bold;font-size:14px;background:url(images/arrow-bullet.gif) no-repeat 0px 4px }
+.Update-Box {padding-bottom:20px;margin-top:10px;overflow:visible;display:block;border-bottom:2px solid #5ba9ca}
+.Update-Head {text-indent:10px;color:#4594C1;font-weight:bold;font-size:13px;background:url(images/arrow-bullet.gif) no-repeat 0px 4px;display:block }
+.Update-Body {text-align:right;font-weight:bold;font-size:10px;color:#CC9900;display:block}
+.Update-Box a:link {text-decoration:none;color:#CC9900;}
+a:hover .Update-Box {text-decoration:none;color:#FF9900;background:#FFFFCC;}
+.Update-Box a:visited {text-decoration:none;color:#CC9900;}
+#topmenu-outer {
+}
+#topmenu {
+	border: 1px solid #bba180;
+	background: #f0d9b9;
+	margin-bottom:5px;
+	width:745px;
+}
+.topmenu {
+	border: 1px solid #bba180;
+	background: #f0d9b9;
+	margin-bottom:5px;
+	font-size:12px;
+}
+.sidemenu-item {
+	font-family:Arial; font-size:12px;
+}
+.topmenu-item {background: #f0d9b9;
+padding-left:30px;padding-right:30px;font-family:Helvetica, "Myriad Pro", Myriad, "Arial Narrow", Arial, sans-serif;font-weight:500;font-size:18px;color:#144f65;text-decoration:none;
+}
+a .topmenu-item {color:#144f65;text-decoration:none;width:100%;}
+a:link .topmenu-item {color:#144f65;text-decoration:none;}
+a:visited .topmenu-item {color:#144f65;text-decoration:none;}
+a:hover .topmenu-item {background:#5ba9ca;color:#f4deb1;}
+.topmenu-item a {color:#144f65;text-decoration:none;width:100%;}
+.topmenu-item a:link {color:#144f65;text-decoration:none;}
+.topmenu-item a:visited {color:#144f65;text-decoration:none;}
+.topmenu-item a:hover {background:#5ba9ca;color:#f4deb1;}
+
+.topmenu-item1 {background: #f0d9b9;
+font-family:Helvetica, "Myriad Pro", Myriad, "Arial Narrow", Arial, sans-serif;font-weight:500;font-size:14px;color:#144f65;text-decoration:none;width:175px;padding:4px 10px 4px 10px;border:1px solid #bba180
+}
+.topmenu-item1 a {color:#144f65;text-decoration:none;width:175px}
+.topmenu-item1 a:link {color:#144f65;text-decoration:none;}
+.topmenu-item1 a:visited {color:#144f65;text-decoration:none;}
+.topmenu-item1 a:hover {background:#5ba9ca;color:#f4deb1;}
+
+.sidemenu-item a {color:#144f65;text-decoration:none;display:block; font-size:12px;font-weight:normal;}
+.sidemenu-item a:link {color:#144f65;text-decoration:none;display:block; font-size:12px;}
+.sidemenu-item a:visited {color:#144f65;text-decoration:none;display:block; font-size:12px;}
+.sidemenu-item a:hover {background:#5ba9ca;color:#f4deb1;display:block; font-size:12px;border-bottom:0px none;}
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+.FixedColumn #mainContent { 
+	margin-left: 0px;
+
+} 
+.FixedColumn #footer { 
+	padding: 0;
+	background:#DDDDDD;
+	background: #f0d9b9;
+	border: 1px solid #bba180;
+} 
+.FixedColumn #footer p {
+	margin: 0;
+	padding: 10px 0;
+}
+.fltrt {
+	float: right;
+	margin-left: 8px;
+}
+.fltlft {
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat {
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+.leonidas {background:url(images/celebrategreece-leonidas.jpg) right 0px no-repeat;margin-bottom:50px;}
+.leonidas-top {
+	font-size:14px;
+	font-weight:bold;
+	margin-bottom:15px;
+	color: #666666;
+}
+.leonidas-text {font-size:12px;width:365px;padding-top:50px;}
+.style1 {
+	color: #666666;
+	font-size: 12px;
+	font-weight: bold;
+	margin-right: 5px;
+}
+.style2 {color: #4594C1; font-weight: normal; font-size:18px; }
+.style3 {color: #4594C1}
+.radiooption:hover {background:#CCCCCC}
