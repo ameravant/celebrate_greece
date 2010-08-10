@@ -16,10 +16,9 @@ xml.rss(:version=>"2.0", "xmlns:media" => "http://search.yahoo.com/mrss/"){
           xml.price(product.price)
           xml.upc(product.upc)
           xml.link
-          xml.media :title
-          xml.media :description  
+          xml.media :title => product.title
+          xml.media :description => product.description
           xml.media :content, :type => "video/quicktime", :url => product.embed_code.gsub(/^.*embed src=/, '').gsub(/type.*$/, '').gsub(/^\"/, '').strip!
-          xml.media :player
           xml.media :thumbnail
         end
       end
