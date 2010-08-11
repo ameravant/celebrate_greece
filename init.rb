@@ -1,3 +1,6 @@
 require 'product.rb'
 require 'product_category.rb'
 require 'image.rb'
+require 'country_select.rb'
+require 'inquiry.rb'
+require 'person.rb'

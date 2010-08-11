@@ -7,8 +7,6 @@ class ProductsController < ApplicationController
     if !params[:tag].blank?
       # Filter articles by tag
       @products = params[:product_category_id] == ProductCategory.videos.id ? Product.videos_tagged_with(params[:tag]) : Product.active.find_tagged_with(params[:tag])
-      add_breadcrumb "Products", products_path
-      add_breadcrumb params[:tag]
     elsif params[:product_category_id]
       @products = ProductCategory.find(params[:product_category_id]).parent.name == "videos" ? ProductCategory.find(params[:product_category_id]).products.active.video : ProductCategory.find(params[:product_category_id]).products.active
     else
@@ -21,7 +19,6 @@ class ProductsController < ApplicationController
       @videos = Product.video.active
       @map = true
     end
-     add_breadcrumb 'Product'
    respond_to do |wants|
      wants.html # index.html.erb
      wants.xml { render :xml => @products.to_xml }
@@ -36,7 +33,6 @@ class ProductsController < ApplicationController
       @category = ProductCategory.find_or_create_by_name("Wholesale")
       @heading = @product.name
       @testimonial = Testimonial.find(:all, :conditions => ["quotable_id = ?" , @product.id]).sort_by(&:rand).first #Select a random testimonial
-      add_breadcrumb 'Products', 'products_path'
       if @product.product_categories.any?
         @productcategory = @product.product_categories.first
         @product_category_tmp = []
@@ -45,7 +41,6 @@ class ProductsController < ApplicationController
           add_breadcrumb product_category.title, product_category_path(product_category)
         end
 			end
-			add_breadcrumb @product.name
     rescue ActiveRecord::RecordNotFound
       flash[:error] = "The product you were looking for was not found."
       redirect_to products_path
