@@ -1,6 +1,6 @@
-%div
-  .float-right
-    %span Video Search
+- content_for :side_column do
+  .side-column-section
+    %h1 Video Search
     - form_tag(products_path, :method => "get") do
       - fields_for :search do |f|
         = tag(:input, :id => "search", :name => "video_search", :type => "search", :size => "25", :value => (params[:video_search] ? params[:video_search] : nil), :autosave => "site-ninja.com", :results => 10)

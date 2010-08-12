@@ -119,7 +119,6 @@
               #pre-content-inner
                 - if @breadcrumbs
                   #crumb= @breadcrumbs.map { |txt, path| link_to_unless(path.blank?, h(txt), path) }.join(" > ")
-                =render :partial => "products/search"
           #content-outer
             #content-middle
               #content-inner{:class => ((@content_for_side_column and @content_for_side_column_2) ? "with-side-columns" : ((@content_for_side_column or @content_for_side_column_2) ? (@content_for_side_column ? "with-side-column" : "with-side-column-2") : ""))}

@@ -7,12 +7,12 @@
   - content_for :footer do
     ==<script id="googlecart-script" type="text/javascript" src="http://checkout.google.com/seller/gsc/v2/cart.js?mid=#{@cms_config["site_settings"]["google_merchant_id"]}" post-to-sandbox="#{RAILS_ENV=="development"}" currency="USD"></script>
 
-%h1= @product.name
+%h1{:style => "margin: 0; padding: 0"}= @product.name
 -if @product.is_video
   =@product.embed_code
 -else
   = render :partial => "/shared/image_box", :locals => { :owner => @product } unless @product.images.empty?
--if @product.price && !@product.is_video
+-if !@product.product_options.empty?
   #pricing
     %div{:class => "add-to-cart product"}
       = hidden_field_tag "product-title", @product.title, {:class => "product-title"}
@@ -21,7 +21,7 @@
       = "Weight: #{@product} <br />" unless @product.weight.blank?
       -if @product.weight
         %input.product-weight{:type=>"hidden", :value=>"#{@product.weight}"}
-      %br
+        %br
       -if !@product.product_options.reject{|x| !x.available}.empty?
         = hidden_field_tag "product-price", number_to_currency(@product.product_options[0].price), {:class => "product-price"}
         -if @product.product_options.count > 1
@@ -36,11 +36,10 @@
           = @product.cart_code
         - elsif @cms_config["site_settings"]["google_merchant_id"] and @product.display_add_cart and @product.product_options[0].price
           %div.googlecart-add-button{:role=>"button", :alt=>"Add to cart", :tabindex=>"0", :style => "position: relative;"}
-    
-%h2.clear-both Description
+
 = @product.description
 
-/Related Products
+-#Related Products
 - unless @product.related_products.blank?
   -if @product.is_video?
     %div.related-videos

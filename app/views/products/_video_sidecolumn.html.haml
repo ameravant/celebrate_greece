@@ -1,14 +1,15 @@
 - content_for :side_column do
   %script{:style=> "float:right;", :type => "text/javascript", :src => "http://w.sharethis.com/button/sharethis.js\#publisher=#{@cms_config['keys']['sharethis']}&amp;type=website&amp;embeds=true"}
   = render :partial => "/shared/image_box", :locals => { :owner => product } unless product.images.empty?
-  #div.clear
-    %h2 Purchase
-    %ul
-      -for medium in ["dvd", "itunes", "pc_to_tv", "mobile"]
-        -unless product.send("#{medium}".to_sym).blank?
-          %li{:style=> "list-style-type:none; float:left; display:inline; width:auto; margin: 0 5px 5px 5px;"}=link_to(image_tag(('/plugin_assets/celebrate_greece/images/icons/' + medium + '_icon.gif'), :title => medium + " purchase link"), product.send("#{medium}".to_sym))
-  #div.clear.video-details
-    %h2 Specifications
+  - if !product.dvd.blank? or !product.itunes.blank? or !product.pc_to_tv.blank? or !product.mobile.blank? 
+    .side-column-sections
+      %h1 Purchase
+      %ul
+        -for medium in ["dvd", "itunes", "pc_to_tv", "mobile"]
+          -unless product.send("#{medium}".to_sym).blank?
+            %li{:style=> "list-style-type:none; float:left; display:inline; width:auto; margin: 0 5px 5px 5px;"}=link_to(image_tag(('/plugin_assets/celebrate_greece/images/icons/' + medium + '_icon.gif'), :title => medium + " purchase link"), product.send("#{medium}".to_sym))
+  .side-column-section.video-details
+    %h1 Specifications
     %ul.details
       -unless product.producer.blank?
         %li= "Producer: %s" % product.producer
@@ -31,13 +32,18 @@
       -unless product.sku.blank?
         %li= "Video ID: %s" % product.sku
   -if product.tag_list.any?
-    #div.tags
-      %h2 Tags
+    .side-column-section.tags
+      %h1 Tags
       %ul.article_tags.list_of_links
         - tag_cloud product.tag_counts.sort_by(&:name), %w(tag-size-1 tag-size-2 tag-size-3 tag-size-4) do |tag, css_class|
           - if params[:tag] == tag.name
             %li{:class => "sidebar_link_active #{css_class}"}= h(tag.name)
           - else
             %li{:class => "#{css_class}"}[tag]= link_to h(tag.name), products_path(:tag => tag.name, :product_category_id => ProductCategory.find_by_name("videos").id)
-  %h2 Resellers
-  %p=link_to "See our list of videos available for re-sale &rarr", product_category_url(category)
+  .side-column-section
+    %h1 Resellers
+    %div=link_to "See our list of videos available for re-sale &rarr", product_category_url(category)
+    
+- content_for :head do
+  %style{:type => "text/css"}
+    div#side-column .images { float: none; width: 280px; margin: 0; }
