@@ -4,20 +4,29 @@ class ProductsController < ApplicationController
 	before_filter :find_page
 
   def index
-    if !params[:tag].blank?
-      # Filter articles by tag
-      @products = params[:product_category_id] == ProductCategory.videos.id ? Product.videos_tagged_with(params[:tag]) : Product.active.find_tagged_with(params[:tag])
-    elsif params[:product_category_id]
-      @products = ProductCategory.find(params[:product_category_id]).parent.name == "videos" ? ProductCategory.find(params[:product_category_id]).products.active.video : ProductCategory.find(params[:product_category_id]).products.active
+    if params[:video_search].blank?
+      if !params[:tag].blank?
+        # Filter articles by tag
+        @products = params[:product_category_id] == ProductCategory.videos.id ? Product.videos_tagged_with(params[:tag]) : Product.active.find_tagged_with(params[:tag])
+      elsif params[:product_category_id]
+        @products = ProductCategory.find(params[:product_category_id]).parent.name == "videos" ? ProductCategory.find(params[:product_category_id]).products.active.video : ProductCategory.find(params[:product_category_id]).products.active
+      else
+        @products = Product.all(:conditions => { :featured => true })
+        @all_products = Product.all
+        @heading = "Product"
+      end
+      @map = false
+      if request.request_uri =~ /^\/map$/
+        @videos = Product.video.active
+        @map = true
+      end
     else
-      @products = Product.all(:conditions => { :featured => true })
-      @all_products = Product.all
-      @heading = "Product"
-    end
-    @map = false
-    if request.request_uri =~ /^\/map$/
-      @videos = Product.video.active
-      @map = true
+      videos = []
+      for parameter in params[:video_search].to_s.split
+        videos << Product.title_or_description_like(parameter)
+      end
+      products = videos.flatten.reject{|v| !v.is_video?}
+      @products = products.paginate(:page => params[:page], :per_page => 25)
     end
    respond_to do |wants|
      wants.html # index.html.erb
