@@ -37,7 +37,7 @@
         - elsif @cms_config["site_settings"]["google_merchant_id"] and @product.display_add_cart and @product.product_options[0].price
           %div.googlecart-add-button{:role=>"button", :alt=>"Add to cart", :tabindex=>"0", :style => "position: relative;"}
 
-= @product.description
+= ninja_parse(@product.description)
 
 -#Related Products
 - unless @product.related_products.blank?
