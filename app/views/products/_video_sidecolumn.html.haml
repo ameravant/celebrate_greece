@@ -32,10 +32,8 @@
       -unless product.sku.blank?
         %li= "Video ID: %s" % product.sku
       -unless product.embed_code.blank?
-        %li
-          = "Embed Code:" 
-          %textarea{:rows =>"2" :cols=>"20"}
-            = product.embed_code
+        %li= "Embed Code Jason"
+        = text_area_tag :embed_code, product.embed_code, :rows => 5, :cols => 33 
   -if product.tag_list.any?
     .side-column-section.tags
       %h1 Tags
