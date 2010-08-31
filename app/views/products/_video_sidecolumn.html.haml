@@ -31,6 +31,8 @@
         %li= "Language: %s" % product.language
       -unless product.sku.blank?
         %li= "Video ID: %s" % product.sku
+      -unless product.embed_code.blank?
+        %li= "Embed Code: %s" % product.embed_code
   -if product.tag_list.any?
     .side-column-section.tags
       %h1 Tags
