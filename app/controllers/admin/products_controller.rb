@@ -44,7 +44,8 @@ class Admin::ProductsController < AdminController
   def create
     @product = Product.new(params[:product])
     if params[:product][:is_video]
-      @product.product_category_ids = @product.product_category_ids << ProductCategory.find_or_create_by_name('videos').id.to_s
+      cat = ProductCategory.find_or_create_by_name('videos').id
+      @product.product_category_ids = @product.product_category_ids + cat
       @product.product_category_ids = @product.product_category_ids.uniq.flatten
     end
     if @product.save
