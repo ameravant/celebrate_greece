@@ -8,16 +8,13 @@
     ==<script id="googlecart-script" type="text/javascript" src="http://checkout.google.com/seller/gsc/v2/cart.js?mid=#{@cms_config["site_settings"]["google_merchant_id"]}" post-to-sandbox="#{RAILS_ENV=="development"}" currency="USD"></script>
 
 %h1{:style => "margin: 0; padding: 0"}= @product.name
--if @product.is_video
-  =@product.embed_code
--else
+-unless @product.is_video?
   = render :partial => "/shared/image_box", :locals => { :owner => @product } unless @product.images.empty?
 -if !@product.product_options.empty?
   #pricing
     %div{:class => "add-to-cart product"}
       = hidden_field_tag "product-title", @product.title, {:class => "product-title"}
       = hidden_field_tag "product-attr-option", @product.product_options[0].title ? @product.product_options[0].title : nil, {:class => "product-attr-option"}
-      = "Product SKU: #{@product.sku}<br />" unless @product.sku.blank?
       = "Weight: #{@product} <br />" unless @product.weight.blank?
       -if @product.weight
         %input.product-weight{:type=>"hidden", :value=>"#{@product.weight}"}
