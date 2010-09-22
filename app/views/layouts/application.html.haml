@@ -38,6 +38,7 @@
       = stylesheet_link_tag "/plugin_assets/siteninja_events/stylesheets/events.css"
     - if @cms_config['modules']['store']
       = javascript_include_tag "/plugin_assets/siteninja_store/javascripts/jquery.formatCurrency-1.3.0.min.js"  
+      = javascript_include_tag "/plugin_assets/siteninja_store/javascripts/product_options.js"  
     - if logged_in? # admin is logged in
       = stylesheet_link_tag "/plugin_assets/siteninja_core/stylesheets/admin_menu.css"
       - # Textile includes are commented out until implemented
