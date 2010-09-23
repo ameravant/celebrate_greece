@@ -6,6 +6,8 @@
     .product-category-cell ul{list-style: none; margin: 0; padding: 0 0 5px 10px;}
     table %tr {display:table-row;}
 = error_messages_for "product"
+- fancy_submit admin_products_path do
+  = f.submit "Save Product"
 %fieldset
   %dl
     %dt.form-label
