@@ -50,7 +50,7 @@
               %p= product.title
               %p 
                 Length
-                = product.video_length.strftime('%H:%M:%S') || "N/A"
+                = product.video_length || "N/A"
               %p
                 -for cat in product.product_categories
                   =(link_to cat.name + " ", cat) unless cat.permalink == "videos"

@@ -12,7 +12,7 @@ xml.rss(:version=>"2.0", "xmlns:media" => "http://search.yahoo.com/mrss/"){
         xml.description(h(product.blurb))
         xml.guid(product_url(product))
         if product.is_video?
-          xml.video_length(product.video_length.strftime("%H:%M:%S")) if product.video_length
+          xml.video_length(product.video_length) if product.video_length
           xml.price(product.price)
           xml.upc(product.upc)
           xml.link
