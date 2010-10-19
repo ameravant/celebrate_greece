@@ -2,7 +2,7 @@
   %dt.label=f.label :sku, "Video ID:"
   %dd.form-option= f.text_field :sku, :size => 10
   %dt.label=f.label :embed_code, "Embed Code:"
-  %dd.form-option= f.text_area :embed_code, :size => "50x5", :class => "big"
+  %dd.form-option= f.text_area :embed_code, :size => "100x10", :class => "big"
   %dt.label= f.label :short_description, "Short Description:"
   %dd.form-option= f.text_area :short_description, :size => "50x5", :class => "big"
   %dt.label=f.label :resolution, "Resolution:"
@@ -24,7 +24,7 @@
   %dt.label=f.label :vod, "VOD:"
   %dd.form-option= f.text_field :vod, :class => "big"
   %dt.label=f.label :video_length, "Video Length:"
-  %dd.form-option= f.text_field :video_length, :class => "big"
+  %dd.form-option= f.select_time("#{0.hours + 0.minutes + 0.seconds}", :time_separator => ':', :include_seconds => true), :video_length, :class => "big"
   %dt.label= f.label :trailer_length, "Trailer Length:"
   %dd.form-option= f.text_field :trailer_length, :class => "big"
   %dt.label= f.label :subtitled, "Subtitled:"
