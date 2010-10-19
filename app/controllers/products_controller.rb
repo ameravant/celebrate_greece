@@ -72,8 +72,8 @@ class ProductsController < ApplicationController
   def find_page
     @footer_pages = Page.find(:all, :conditions => {:show_in_footer => true}, :order => :footer_pos )
     @page = Page.find_by_permalink!('products')
-    @productcategories = ProductCategory.all
-    @topproductcategories = ProductCategory.all(:conditions => {:parent_id => nil})
+    @productcategories = ProductCategory.only_public
+    @topproductcategories = ProductCategory.only_public(:conditions => {:parent_id => nil})
     # @product_category_tmp = []
     #     build_tree(@product_category)
     #     for product_category in @product_category_tmp.reverse
