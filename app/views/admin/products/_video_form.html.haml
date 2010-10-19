@@ -24,7 +24,7 @@
   %dt.label=f.label :vod, "VOD:"
   %dd.form-option= f.text_field :vod, :class => "big"
   %dt.label=f.label :video_length, "Video Length:"
-  %dd.form-option= f.select_time("#{0.hours + 0.minutes + 0.seconds}", :time_separator => ':', :include_seconds => true), :video_length, :class => "big"
+  %dd.form-option= f.text_field :video_length, :class => "big"
   %dt.label= f.label :trailer_length, "Trailer Length:"
   %dd.form-option= f.text_field :trailer_length, :class => "big"
   %dt.label= f.label :subtitled, "Subtitled:"
