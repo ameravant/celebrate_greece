@@ -37,7 +37,7 @@
 = ninja_parse(@product.description)
 
 -#Related Products
-- unless @product.related_products.blank?
+- unless @product.related_products.active.empty?
   -if @product.is_video?
     %div.related-videos
       %h2 Related Products
@@ -58,7 +58,7 @@
     %h2
       Related Products
     %ul
-      - for product in @product.related_products
+      - for product in @product.related_products.active
         %li= link_to(product.name, product_path(product))
 -if @product.is_video?
   = render :partial => "video_sidecolumn", :locals => {:product => @product, :category => @category }
