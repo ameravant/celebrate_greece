@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
       elsif params[:product_category_id]
         @products = ProductCategory.find(params[:product_category_id]).parent.name == "videos" ? ProductCategory.find(params[:product_category_id]).products.active.video : ProductCategory.find(params[:product_category_id]).products.active
       else
-        @products = Product.all(:conditions => { :featured => true })
+        @products = Product.active.featured
         @all_products = Product.all
         @heading = "Product"
       end
