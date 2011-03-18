@@ -76,8 +76,8 @@
               .display-option
                 = p.check_box :show_city
                 = p.label :show_city, "Display Publicly"
-          %dt.form-label= p.label :country
-          %dd.form-option= country_select "profile", :country, ["United States"]
+          %dt.form-label= f.label :country
+          %dd.form-option= country_select "person", :country, ["United States"]
           %span{:class => "small red"} *required
           %dt.form-label= f.label :state
           %dd.form-option
