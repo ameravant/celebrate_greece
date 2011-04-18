@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
       elsif params[:product_category_id]
         @products = ProductCategory.find(params[:product_category_id]).parent.name == "videos" ? ProductCategory.find(params[:product_category_id]).products.active.video : ProductCategory.find(params[:product_category_id]).products.active
       else
-        @products = Product.all(:conditions => { :featured => true })
+        @products = Product.active.featured
         @all_products = Product.all
         @heading = "Product"
       end
@@ -72,8 +72,8 @@ class ProductsController < ApplicationController
   def find_page
     @footer_pages = Page.find(:all, :conditions => {:show_in_footer => true}, :order => :footer_pos )
     @page = Page.find_by_permalink!('products')
-    @productcategories = ProductCategory.all
-    @topproductcategories = ProductCategory.all(:conditions => {:parent_id => nil})
+    @productcategories = ProductCategory.only_public
+    @topproductcategories = ProductCategory.only_public(:conditions => {:parent_id => nil})
     # @product_category_tmp = []
     #     build_tree(@product_category)
     #     for product_category in @product_category_tmp.reverse

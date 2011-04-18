@@ -15,7 +15,7 @@
       -unless product.producer.blank?
         %li= "Producer: %s" % product.producer
       -unless product.video_length.blank?
-        %li= "Length: %s" % product.video_length.strftime("%H:%M:%S")
+        %li= "Length: %s" % product.video_length
       -unless product.resolution.blank?
         %li= "Resolution: %s" % product.resolution
       -unless product.aspect.blank?
@@ -27,14 +27,14 @@
       -unless product.upc.blank?
         %li= "UPC Code: %s" % product.upc
       -unless product.trailer_length.blank?
-        %li= "Trailer Length: %s" % product.trailer_length.strftime("%H:%M:%S")
+        %li= "Trailer Length: %s" % product.trailer_length
       -unless product.language.blank?
         %li= "Language: %s" % product.language
       -unless product.sku.blank?
         %li= "Video ID: %s" % product.sku
       -unless product.embed_code.blank?
         %li= "Embed Code:"
-        = text_area_tag :embed_code, product.embed_code, :rows => 5, :cols => 33 
+        = text_area_tag :embed_code, product.embed_code, :rows => 20, :cols => 45 
   -if product.tag_list.any?
     .side-column-section.tags
       %h1 Tags
