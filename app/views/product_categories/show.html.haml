@@ -13,6 +13,11 @@
 %ul.product-list
   -@productcategory.products.each do |p|
     -if @productcategory.is_video?
-      = render :partial => "/products/video", :locals => {:video => p, :size => :medium}
+      = render :partial => "/products/video", :locals => {:video => p, :size => :large_thumb}
     -else
       = render :partial => "/products/product", :locals => { :product => p }
+
+
+- content_for :head do
+  %style{:type => "text/css"}
+    ==  .product-list h2 {font-size: 1.5em}

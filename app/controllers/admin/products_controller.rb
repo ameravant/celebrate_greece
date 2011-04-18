@@ -1,10 +1,11 @@
 class Admin::ProductsController < AdminController
+  unloadable
   before_filter :find_product, :only => [ :edit, :update, :show, :destroy, :reorder ]
   before_filter :find_categories, :only => [ :edit, :new, :create ]
   add_breadcrumb "Products", nil
 
   def index
-    @category = ProductCategory.find_or_create_by_name("videos")
+    @category = ProductCategory.find_by_permalink("videos")
     if params[:product_category_id]
       products = ProductCategory.find(params[:product_category_id]).products
     else
