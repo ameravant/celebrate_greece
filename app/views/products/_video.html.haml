@@ -2,8 +2,8 @@
   -if video.images.any?
     =link_to image_tag(video.images.first.image.url(size), :title => video.title, :alt => video.title), video, :class => "product-image"
   %h2= link_to(video.title, video)
-  %p= "Length: %s" % video.video_length if video.video_length
-  %p.video-categories
-    -for cat in video.product_categories
-      -unless cat.permalink == "videos" || cat.private?
-        %span=(link_to cat.name, cat) + " "
+  / %div= "Length: %s" % video.video_length if video.video_length
+  / %p.video-categories
+  /   -for cat in video.product_categories
+  /     -unless cat.permalink == "videos" || cat.private?
+  /       %span=(link_to cat.name, cat) + " "
