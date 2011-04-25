@@ -14,8 +14,18 @@
     %ul.details
       -unless product.producer.blank?
         %li= "Producer: %s" % product.producer
+      -unless product.trailer_length.blank?
+        %li= "Trailer Length: %s" % product.trailer_length
       -unless product.video_length.blank?
-        %li= "Length: %s" % product.video_length
+        %li= "Full Length: %s" % product.video_length
+      -unless product.language.blank?
+        %li= "Language: %s" % product.language
+      -unless product.subtitled.blank?
+        %li= "Subtitled: %s" % product.subtitled
+      -unless product.country.blank?
+        %li= "Country: %s" % product.country
+      -unless product.region.blank?
+        %li= "Region: %s" % product.region
       -unless product.resolution.blank?
         %li= "Resolution: %s" % product.resolution
       -unless product.aspect.blank?
@@ -26,12 +36,10 @@
         %li= "ISBN-10: %s" % product.isbn_ten
       -unless product.upc.blank?
         %li= "UPC Code: %s" % product.upc
-      -unless product.trailer_length.blank?
-        %li= "Trailer Length: %s" % product.trailer_length
-      -unless product.language.blank?
-        %li= "Language: %s" % product.language
       -unless product.sku.blank?
         %li= "Video ID: %s" % product.sku
+      -unless product.map.blank?
+        %li= "MAP: %s" % product.map
       -unless product.embed_code.blank?
         %li= "Embed Code:"
         = text_area_tag :embed_code, product.embed_code, :rows => 10, :cols => 35 
