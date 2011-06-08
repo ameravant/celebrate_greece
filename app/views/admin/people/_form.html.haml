@@ -33,6 +33,8 @@
               .display-option
                 = p.check_box :show_web_address
                 = p.label :show_web_address, "Display Publicly"
+          %dt.form-label= f.label :admin_notes
+          %dd.form-option= f.text_area :admin_notes
         %h2 Additional Contact Info
 
         %dl
