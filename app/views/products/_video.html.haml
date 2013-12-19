@@ -1,6 +1,6 @@
 %li
   -if video.images.any?
-    =link_to image_tag(video.images.first.image.url(size), :title => video.title, :alt => video.title), video, :class => "product-image"
+    =link_to image_tag(video.images.first.thumbnail, :title => video.title, :alt => video.title), video, :class => "product-image"
   %h2= link_to(video.title, video)
   / %div= "Length: %s" % video.video_length if video.video_length
   / %p.video-categories
