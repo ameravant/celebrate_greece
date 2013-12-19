@@ -1,6 +1,6 @@
 %li.product
   - unless product.images.blank? 
-    =link_to image_tag(product.images.first.image.thumbnail, :title => product.title, :alt => product.title), product, :class => "product-image"
+    =link_to image_tag(product.images.first.thumbnail, :title => product.title, :alt => product.title), product, :class => "product-image"
 
   %h2=link_to product.name, product
   =number_to_currency product.product_options[0].price, :unit => '$' unless (product.product_options[0].price.blank? || product.is_video?)
