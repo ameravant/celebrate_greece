@@ -1,0 +1,26 @@
+- @show_site_search = true
+- if @side_column_sections
+  - unless @side_column_sections.empty?
+    - for section in @side_column_sections.uniq
+      - unless section.column_section_type.blank?
+        - content_for :side_column do
+          = section.starting_html
+          - if section.column_section_type.partial_name == "signup_for_side_column"
+            = render :partial => "/newsletters/signup_for_side_column" if  @cms_config['modules']['newsletters']
+          - elsif section.column_section_type.partial_name == "events_for_side_column"
+            = render :partial => "/events/events_for_side_column", :locals => { :title => section.title, :count => section.count, :show_blurb => section.show_blurb, :section => section } if @cms_config['modules']['events']
+          - elsif section.column_section_type.partial_name == "articles_for_side_column"
+            = render :partial => "/articles/articles_for_side_column", :locals => { :count => section.count, :show_blurb => section.show_blurb, :show_author => section.show_author, :title => section.title, :section => section } if @cms_config['modules']['blog']
+          - elsif section.column_section_type.partial_name == "article_categories_for_side_column"
+            = render :partial => "/article_categories/article_categories_for_side_column", :locals => { :count => section.count, :title => section.title, :section => section } if @cms_config['modules']['blog']
+          - elsif section.column_section_type.partial_name == "testimonial_for_sidebar"
+            = render :partial => "/testimonials/testimonial_for_sidebar", :locals => { :title => section.title, :section => section, :count => section.count, :testimonial => @testimonial } if @cms_config['features']['testimonials']
+          - elsif section.column_section_type.controller_name == "content"
+            - if !section.body.blank?
+              .side-column-section
+                = ninja_parse(section.body)
+          - elsif section.column_section_type.partial_name == "submenu_for_side_column"
+            = render :partial => "/#{section.column_section_type.controller_name}/#{section.column_section_type.partial_name}", :locals => { :section => section, :count => section.count, :title => section.title, :show_author => section.show_author, :show_blurb => section.show_blurb, :column => "side_column" }
+          - else
+            = render :partial => "/#{section.column_section_type.controller_name}/#{section.column_section_type.partial_name}", :locals => { :section => section, :count => section.count, :title => section.title, :show_author => section.show_author, :show_blurb => section.show_blurb }
+          = section.ending_html
